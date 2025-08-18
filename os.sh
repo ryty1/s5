@@ -229,7 +229,10 @@ port_manager() {
                             kill -9 $PID
                         fi
                         sleep 3
-                        cd "$PY_DIR" && nohup python3 get.py >/dev/null 2>&1 &
+                        
+                        cd "$PY_DIR" || exit
+                        nohup python3 get.py >/dev/null 2>&1 </dev/null &
+                        disown
                         
                         sleep 5
                         
@@ -298,8 +301,10 @@ config_modify() {
         fi
         
         sleep 3
-
-        cd "$PY_DIR" && nohup python3 get.py >/dev/null 2>&1 &
+        
+        cd "$PY_DIR" || exit
+        nohup python3 get.py >/dev/null 2>&1 </dev/null &
+        disown
         echo "✅ 已重启服务"
     fi
     
