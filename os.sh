@@ -228,7 +228,7 @@ port_manager() {
                         if [[ -n "$PID" ]]; then
                             kill -9 $PID
                         fi
-                        
+                        sleep 3
                         cd "$PY_DIR" && nohup python3 get.py >/dev/null 2>&1 &
                         
                         sleep 5
@@ -296,6 +296,8 @@ config_modify() {
         if [[ -n "$PID" ]]; then
             kill -9 $PID
         fi
+        
+        sleep 3
 
         cd "$PY_DIR" && nohup python3 get.py >/dev/null 2>&1 &
         echo "✅ 已重启服务"
