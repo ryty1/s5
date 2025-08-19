@@ -40,7 +40,7 @@ HOSTNAME=$(hostname)
 if [[ "$HOSTNAME" == *ct8.pl* ]]; then
     DOMAIN="$V.ct8.pl"
 elif [[ "$HOSTNAME" == *serv00.com* ]]; then
-    DOMAIN="$V.serv00.com"
+    DOMAIN="$V.serv00.net"
 else
     echo "🚫 无法识别主机名，默认使用 $V.local"
     DOMAIN="$V.local"
